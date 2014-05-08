@@ -17,4 +17,20 @@ class Crm
     employees_of_companies
   end
 
+  def employments
+    employments = []
+    CRM[:people].each do |person|
+      person[:employments].each do |employment|
+        listed_employment = {
+          :company_id => employment[:company_id],
+          :company_name => CRM[:companies][employment[:company_id]][:name],
+          :person_id => person[:id],
+          :person_first_name => person[:first_name],
+          :person_last_name => person[:last_name],
+          :title => employment[:title]}
+        employments << listed_employment
+      end
+    end
+    employments
+  end
 end
