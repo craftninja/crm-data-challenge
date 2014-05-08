@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../lib/employees_of_companies'
+require_relative '../lib/crm'
 require_relative '../lib/test_data'
 
 describe 'returns properly munged data structures' do
