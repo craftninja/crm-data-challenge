@@ -78,4 +78,15 @@ describe 'returns properly munged data structures' do
     expect(actual).to eq(expected)
   end
 
+  it 'returns new data structure: list of all people with no work history' do
+    crm = Crm.new
+    actual = crm.no_work_history
+    expected = [
+      {:id=>3,
+       :first_name=>"Elyse",
+       :last_name=>"Jensen"}
+    ]
+    expect(actual).to eq(expected)
+  end
+
 end

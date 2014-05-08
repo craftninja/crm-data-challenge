@@ -33,4 +33,19 @@ class Crm
     end
     employments
   end
+
+  def no_work_history
+    no_work_history_list = []
+    CRM[:people].each do |person|
+      if person[:employments].empty?
+        no_work_history_personal_data = {
+          :id => person[:id],
+          :first_name => person[:first_name],
+          :last_name => person[:last_name], }
+        no_work_history_list << no_work_history_personal_data
+      end
+    end
+    no_work_history_list
+  end
+
 end
